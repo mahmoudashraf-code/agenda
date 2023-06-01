@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="add-circle-outline"></ion-icon>      
+      </ion-button>
+    </ion-buttons>
+    <ion-title>إضافة عنصر جديد</ion-title>
+
+    <ion-chip routerLink="/info" color="light" expand="block" slot="end">
+      <ion-label>{{this.s.news[this.s.in].username}}</ion-label>
+      <ion-icon name="person"></ion-icon>
+    </ion-chip>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">الوصف</ion-label>
+    <ion-textarea [(ngModel)]="this.s.news2.data"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">تاريخ التذكير</ion-label>
+    <ion-datetime [(ngModel)]="this.s.news2.date" displayFormat="MM/DD/YYYY" min="2016-01-01" max="2050-12-30" cancelText="إالغاء" doneText="موافق"></ion-datetime>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label>وقت التذكير</ion-label>
+    <ion-datetime [(ngModel)]="this.s.news2.time" displayFormat="h:mm a" cancelText="إالغاء" doneText="موافق"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-select cancelText="إالغاء" okText="موافق" placeholder="أخنر التضنيف" [(ngModel)]="this.s.news2.title">
+      <ion-select-option value="a">عام</ion-select-option>
+      <ion-select-option value="b">خاص</ion-select-option>
+      <ion-select-option value="c">إجتماعى</ion-select-option>
+      <ion-select-option value="d">شخصى</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <br>
+  <ion-chip (click)="this.s.postx()" color="dark" expand="block" id="ss">
+    <ion-icon name="checkmark-circle-outline"></ion-icon>        
+    <ion-label>حفظ</ion-label>
+  </ion-chip>
+</ion-content>

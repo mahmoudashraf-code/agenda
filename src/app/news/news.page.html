@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="dark">
+
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="paper"></ion-icon>      
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>المواعيد الهامة</ion-title>
+
+    <ion-chip routerLink="/info" color="light" expand="block" slot="end">
+      <ion-label>{{this.ser.news[this.ser.in].username}}</ion-label>
+      <ion-icon name="person"></ion-icon>
+    </ion-chip>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar placeholder="ابحث عن مواعيدك الهامة" #ff (ionChange)="chan(ff.value)"></ion-searchbar>
+
+  <ion-select multiple="true" cancelText="إالغاء" okText="موافق" placeholder="أخنر التضنيف">
+    <ion-select-option value="a">عام</ion-select-option>
+    <ion-select-option value="b">خاص</ion-select-option>
+    <ion-select-option value="c">إجتماعى</ion-select-option>
+    <ion-select-option value="d">شخصى</ion-select-option>
+  </ion-select>
+
+  <ion-list> 
+    <ion-item *ngFor="let product of ser.news[this.ser.in].information; index as i" (click)="adddata(i)">
+      <ion-avatar slot="start">
+        <img src="assets/Picture1.svg">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{product.title}}</h2>
+        <h3>{{product.time}}</h3>
+        <h3>{{product.date}}</h3>
+        <p>{{product.data}}</p>
+      </ion-label>
+      <ion-note slot="end"><ion-icon name="bulb" color="warning"></ion-icon></ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>
